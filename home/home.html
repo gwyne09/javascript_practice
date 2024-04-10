@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>home</title>
+        <link rel="stylesheet" type="text/css" href="/home/home.css">
+        <link rel="stylesheet" type="text/css" href="/home/navbar.css">
+    </head>
+    <body>
+        <nav class="nav_bar">
+            <button class="hamburger_button">
+                <img class="hamburger_button_img" src="/resources/navbar/hamburger-menu.svg">
+            </button>
+            <ul class="nav_elements">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li class="apps">
+                    <a href="#">Apps</a>
+                    <div class="nav_dropdown">
+                        <ul>
+                            <li>
+                                <a class="calculator_app" href="#">Calculator</a>
+                            </li>
+                            <li>
+                                <a id="timer_app" href="#">Timer</a>
+                            </li>
+                            <li>
+                                <a class="clock_app" href="#">Clock</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="display_app"></div>
+        <script src="/home/home.js"></script>
+        <script src="/home/nav_bar.js"></script>
+    </body>
+</html>

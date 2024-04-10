@@ -1,0 +1,10 @@
+body {
+    font-size: 1.6rem;
+    padding: 0rem;
+    margin: 0rem;
+    background-image: url("/resources/bg/1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
