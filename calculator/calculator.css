@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    padding: 0rem;
+    margin: 0rem;
+    font-size: 62.5%;
+}
+
 .calculator {
     position: absolute;
     top: 50%;
@@ -11,4 +19,49 @@
     backdrop-filter: blur(10px);
     border-radius: 1rem;
     padding: 1rem;
+    font-family: "Inter", sans-serif;
 }
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.button_function {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 0.5px black;
+    color: white;
+}
+
+.button_number {
+    background-color: rgba(103, 103, 103, 0.7);
+    border: solid 1px black;
+    color: white;
+}
+
+.button_operator {
+    background-color: rgb(236, 153, 10);
+    border: solid 1px black;
+    color: white;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+/* @media screen and (min-width: 400px) {
+    .calculator {
+        background-color: red;
+    }
+    .button {
+        font-size: 1.6rem;
+    }
+}
+@media screen and (min-width: 900px) {
+    .calculator {
+        background-color: rgb(128, 0, 255);
+    }
+    .button {
+        font-size: 3rem;
+    }
+} */
