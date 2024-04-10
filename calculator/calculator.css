@@ -22,9 +22,26 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+button:active {
+    opacity: 0.7;
+}
+
+.display {
+    background-color: rgba(103, 103, 103, 0.7);
+    border: solid 1px black;
+    color: white;
+    height: 6rem;
+}
+
 .buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.buttons > button {
+    font-size: 2rem;
+    padding: 1vw;
 }
 
 .button_function {
