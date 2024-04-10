@@ -1,5 +1,4 @@
 body {
-    font-size: 1.6rem;
     padding: 0rem;
     margin: 0rem;
 }
@@ -27,6 +26,7 @@ body {
     padding: 2rem;
 }
 .timer_element {
+    font-size: 8vw;
     margin: 0rem;
 }
 #hour::after, #minute::after, #seconds::after {

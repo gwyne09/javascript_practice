@@ -46,4 +46,5 @@ const load_app = (html_loc, css_loc, js_loc) => {
 //     console.log("anchor clicked");
 // };
 
-load_app('/calculator/calculator.html', '/calculator/calculator.css', '/calculator/calculator.js')
+load_app('/calculator/calculator.html', '/calculator/calculator.css', '/calculator/calculator.js');
+// load_app('/timer/timer.html', '/timer/timer.css', '/timer/timer.js');
