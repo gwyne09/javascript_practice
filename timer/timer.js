@@ -9,6 +9,9 @@ const pause_button = document.getElementById("pause");
 const reset_button = document.getElementById("reset");
 
 
+// logic is to increase ms until it reaches 1000ms (1 sec), then reset it to 0ms while increasing sec
+// this goes continuously to other units...
+
 // Code for the timer
 class Timer {
     constructor() {
