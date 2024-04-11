@@ -1,30 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-* {
-    padding: 0rem;
-    margin: 0rem;
-}
-
-body {
-    font-size: 62.5%;
-}
-
 .calculator {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.6rem;
-    color: white;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, .2);
+    background: var(--primary_bg_color);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border-radius: 1rem;
+    border-radius: var(--border_radius);
     padding: 1rem;
-    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--box_shadow);
 }
 
 button:active {
@@ -34,7 +21,6 @@ button:active {
 .display {
     background-color: rgba(103, 103, 103, 0.5);
     border: solid 1px black;
-    color: white;
     display: flex;
     flex-direction: column;
 }
@@ -53,19 +39,16 @@ button:active {
 .button_function {
     background-color: rgba(0, 0, 0, 0.5);
     border: solid 0.5px black;
-    color: white;
 }
 
 .button_number {
     background-color: rgba(103, 103, 103, 0.7);
     border: solid 1px black;
-    color: white;
 }
 
 .button_operator {
     background-color: rgba(10, 191, 236, 0.5);
     border: solid 1px black;
-    color: white;
 }
 
 #zero {

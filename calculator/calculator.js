@@ -121,7 +121,7 @@ function convert_to_decimal() {
             text_display.textContent = parsedOutput.toString();
         }
     } else {
-        text_display.textContent = "Error"; // Display "Error" if output is not a valid number
+        text_display.textContent = "0."; // Display decimal when it is clicked first
     }
 }
 
