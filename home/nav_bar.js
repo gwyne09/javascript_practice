@@ -77,4 +77,8 @@ selected_app.onclick = (event) => {
     load_app(`/${app}/${app}.html`, `/${app}/${app}.css`, `/${app}/${app}.js`);
     console.log(`${app} loaded`);
     document.getElementById(app).disabled = true;
+    console.log(document.querySelector('.display_app'))
 };
+
+load_app(`/apps/games/game_1/game_1.html`, `/apps/games/game_1/game_1.css`, `/apps/games/game_1/game_1.js`);
+// load_app(`/apps/timer/timer.html`, `/apps/timer/timer.css`, `/apps/timer/timer.js`);
