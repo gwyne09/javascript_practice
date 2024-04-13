@@ -1,11 +1,6 @@
-// DOM
-
-
-
-
-class game_1 {
+class Game1 {
     constructor() {
-        // DOM
+        // DOM elements
         this.choices = document.querySelector('.choices');
         this.display_player_choice = document.querySelector('.player_choice');
         this.display_computer_choice = document.querySelector('.computer_choice');
@@ -13,102 +8,106 @@ class game_1 {
         this.display_computer_score = document.querySelector('.computer_score');
         this.display_round_winner = document.querySelector('.display_round_winner');
 
-        // variables
-        this.player_choice = null;
-        this.computer_choice = null;
-        this.round_winner = null;
+        // Variables
+        this.player_choice = document.createElement('img');
+        this.computer_choice = document.createElement('img');
         this.player_score = 0;
         this.computer_score = 0;
+        this.round_winner = null;
 
-        // event listener
+        // Event listener
         this.choices.onclick = (event) => this.get_choice(event);
 
-        // initializers
+        // Initialize scores display
         this.display_scores();
-
-        // // create elements
-        // this.player_a = document.createElement('img');
     }
 
-    // get user choice 
+    // Method to get user's choice
     get_choice(event) {
-        // use closest to traverse to the button class when the img is clicked instead of the button
-        const player_choice = event.target.closest('.rock, .paper, .scissors');
-        if (!player_choice) return;
+        const choice_button = event.target.closest('.rock, .paper, .scissors');
+        if (!choice_button) return;
 
-        
-        switch(true) {
-            case player_choice.classList.contains('rock'):
-                this.player_choice = String(player_choice.classList);
-                break;
-            case player_choice.classList.contains('paper'):
-                this.player_choice = String(player_choice.classList);
-                break;
-            case player_choice.classList.contains('scissors'):
-                this.player_choice = String(player_choice.classList);
-                break;
-        }
-
-        this.check_round_winner();
-
-        console.log(`player choice:  ${this.player_choice}`);
-        console.log(`computer choice:  ${this.computer_choice}`);
-        console.log(`round winner:  ${this.round_winner}`);
+        this.player_choice.id = choice_button.classList.value;
+        this.play_round();
     }
 
-    gen_computer_choice() {
+    // Generate computer choice
+    generate_computer_choice() {
         const choices = ['rock', 'paper', 'scissors'];
-        // generate random no.
-        const rand_index = Math.floor(Math.random() * 3);
-        this.computer_choice = choices[rand_index];
+        const rand_index = Math.floor(Math.random() * choices.length);
+        this.computer_choice.id = choices[rand_index];
     }
 
-    check_round_winner() {
-        // this.display_player_choice
-        this.gen_computer_choice();
+    // Play a round and update the state
+    play_round() {
+        this.generate_computer_choice();
+        this.display_choices();
+        this.determine_round_winner();
+        this.update_background_color();
+        this.display_scores();
+    }
 
-        if (this.player_choice == this.computer_choice) {
-            this.round_winner = 'Tie'
+    // Display choices player and computer made
+    display_choices() {
+        // Clear existing images
+        this.display_player_choice.innerHTML = '';
+        this.display_computer_choice.innerHTML = '';
+
+        // Set image source and size
+        const base_path = '/apps/games/game_1/resources/';
+        this.player_choice.src = `${base_path}${this.player_choice.id}_player.png`;
+        this.computer_choice.src = `${base_path}${this.computer_choice.id}_opponent.png`;
+
+        this.player_choice.style.width = '17vw';
+        this.computer_choice.style.width = '17vw';
+
+        // Append new images to DOM
+        this.display_player_choice.appendChild(this.player_choice);
+        this.display_computer_choice.appendChild(this.computer_choice);
+    }
+
+    // Determine the winner of the round
+    determine_round_winner() {
+        if (this.player_choice.id === this.computer_choice.id) {
+            this.round_winner = 'Tie';
             this.display_round_winner.textContent = `It's a ${this.round_winner}`;
         } else {
-            switch(this.player_choice) {
-                case 'rock':
-                    if (this.computer_choice === 'paper') {
-                        this.round_winner = 'Computer';
-                        this.computer_score += 1;
-                    } else {
-                        this.round_winner = 'Player';
-                        this.player_score += 1;
-                    }
-                    break;
-                case 'paper':
-                    if (this.computer_choice === 'scissors') {
-                        this.round_winner = 'Computer';
-                        this.computer_score += 1;
-                    } else {
-                        this.round_winner = 'Player';
-                        this.player_score += 1;
-                    }
-                    break;
-                case 'scissors':
-                    if (this.computer_choice === 'rock') {
-                        this.round_winner = 'Computer';
-                        this.computer_score += 1;
-                    } else {
-                        this.round_winner = 'Player';
-                        this.player_score += 1;
-                    }
-                    break; 
+            // 'choice': 'what this choice beats'
+            const outcome = {
+                'rock': 'scissors',
+                'paper': 'rock',
+                'scissors': 'paper',
+            };
+            // basically, we are checking if the choice of the computer 
+            // beats the choice of the player
+            if (this.player_choice.id === outcome[this.computer_choice.id]) {
+                this.round_winner = 'Computer';
+                this.computer_score += 1;
+            } else {
+                this.round_winner = 'Player';
+                this.player_score += 1;
             }
-            this.display_round_winner.textContent = `${this.round_winner} won`;
+            this.display_round_winner.textContent = `${this.round_winner} won!`;
         }
-        this.display_scores();
     }
 
+    // Update background color based on the round winner
+    update_background_color() {
+        const bg_color_mapping = {
+            'Player': 'rgba(14, 139, 41, 0.3)',
+            'Computer': 'rgba(167, 0, 0, 0.3)',
+            'Tie': 'rgba(40, 49, 173, 0.3)',
+        };
+
+        this.display_round_winner.style.backgroundColor = bg_color_mapping[this.round_winner];
+    }
+
+    // Display player and computer scores
     display_scores() {
         this.display_player_score.textContent = `Player: ${this.player_score}`;
         this.display_computer_score.textContent = `Computer: ${this.computer_score}`;
     }
 }
 
-const start = new game_1();
+// Instantiate the game
+const start = new Game1();

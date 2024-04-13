@@ -15,7 +15,7 @@
 .game_title {
     text-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
     padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.1rem;
     font-size: 4vw;
     text-align: center;
     border-bottom: solid 0.2rem rgba(0, 0, 0, 0.3);
@@ -23,7 +23,8 @@
 
 .display_round_winner {
     text-align: center;
-    padding-bottom: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 .display_choices {
     display: flex;
@@ -53,8 +54,8 @@
 }
 
 .player_choice, .computer_choice {
-    width: 10rem;
-    height: 10rem;
+    width: 20vw;
+    height: 20vw;
     margin: 1rem;
     border: dashed 0.1rem var(--primary_bg_color);
     border-radius: var(--border_radius);
@@ -65,18 +66,23 @@
     flex-direction: column;
 }
 
-button {
+/* 
+    Note: a space targets all elements under it
+          a > only targets the child directly under it
+*/
+
+.game_1 button {
     background: transparent;
 }
 
-button:hover {
+.game_1 button:hover {
     background-color: var(--hover_bg_color);
 }
 
-button:active {
+.game_1 button:active {
     background-color: var(--active_bg_color);
 }
 
-img {
+.game_1 img {
     width: 6rem;
 }
