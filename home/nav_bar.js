@@ -80,5 +80,5 @@ selected_app.onclick = (event) => {
     console.log(document.querySelector('.display_app'))
 };
 
-load_app(`/apps/games/game_1/game_1.html`, `/apps/games/game_1/game_1.css`, `/apps/games/game_1/game_1.js`);
+load_app(`/apps/weather/weather.html`, `/apps/weather/weather.css`, `/apps/weather/weather.js`);
 // load_app(`/apps/timer/timer.html`, `/apps/timer/timer.css`, `/apps/timer/timer.js`);
