@@ -6,20 +6,35 @@
     </head>
     <body>
         <div class="weather">
+            <div>
+                <p class="display_error"></p>
+            </div>
             <div class="search">
-                <input class="city_input" type="text">
-                <button class="search_button" type="submit">Submit</button> 
+                <input class="city_input" type="text" placeholder="search..." onfocus="this.placeholder=''" onblur="this.placeholder='search...'">
+                <button class="search_button" type="submit">
+                    <img class="search_ico" src="/apps/weather/resources/search.svg">
+                </button> 
             </div>
             <div class="show_weather">
-                <h1 class="city_display">city</h1>
-                <h2 class="temperature_display">temperature</h2>
-                <h3 class="short_forecast_display">forecast</h3>
+                <div class="main_weather">
+                    <p class="city_display"></p>
+                    <p class="temperature_display"></p>
+                    <div class="forecast">
+                        <img class="short_forecast_ico">
+                        <p class="short_forecast_display"></p>
+                    </div>
+                </div>
                 <div class="extra">
-                    <p class="humidity_display">humidity</p>
-                    <p class="wind_display">wind</p>
+                    <div class="humidity_status">
+                        <img class="humidity_ico" src="/apps/weather/resources/humidity.png">
+                        <p class="humidity_display"></p>
+                    </div>
+                    <div class="wind_status">
+                        <img class="wind_ico" src="/apps/weather/resources/wind.png">
+                        <p class="wind_display"></p>
+                    </div>
                 </div>
             </div>
-            <div class="errors"></div>
         </div>
         <script src="/apps/weather/weather.js"></script>
     </body>
